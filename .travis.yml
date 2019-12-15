@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run rishabh/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-536404705256"
+  bucket_path: "docker-react"
+  on:
+    branch: master
